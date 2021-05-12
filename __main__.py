@@ -1,10 +1,10 @@
 import argparse
 import logging
 
-from TrainingHandler import TrainingHandler as TrHandler
-from TestingHandler import TestingHandler as TsHandler
-from DynamicObject import DynamicObject as Meta
-from Constants import *
+from training_handler import TrainingHandler as TrHandler
+from testing_handler import TestingHandler as TsHandler
+from dynamic_object import DynamicObject as Meta
+from constants import *
 
 
 def parse_args():

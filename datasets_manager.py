@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 
-from DatasetsVariables import *
+from datasets_variables import *
 from torchvision import transforms
 from logging import getLogger
 
