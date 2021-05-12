@@ -1,12 +1,12 @@
 import logging
 
-import TrainingVariables as TrainVars
-import DatasetsManager
+import training_variables as TrainVars
+import datasets_manager
 import os
 
-from Constants import *
-from DynamicObject import DynamicObject
-from Model import Model
+from constants import *
+from dynamic_object import DynamicObject
+from model import Model
 from tqdm import tqdm
 
 
@@ -44,7 +44,7 @@ class TrainingHandler:
         train_vars[MODEL] = Model(config[MODEL_CLASS], config[MODEL_PATH])
         train_vars[OPTIMIZER] = TrainVars.custom_optimizers[config[OPTIMIZER]](train_vars[MODEL].net.parameters(), lr=config[LEARNING_RATE])
         train_vars[CRITERION] = TrainVars.custom_losses[config[CRITERION]]()
-        train_vars[LOADER] = DatasetsManager.get_loader(config[DATASET_NAME], config[BATCH_SIZE], config[NUM_LOADER_WORKERS])
+        train_vars[LOADER] = datasets_manager.get_loader(config[DATASET_NAME], config[BATCH_SIZE], config[NUM_LOADER_WORKERS])
         train_vars[TRAIN_STEP] = TrainVars.custom_training_steps[config[TRAIN_STEP]]
 
         train_vars[MODEL].net.to(TrainVars.device)

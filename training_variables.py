@@ -2,8 +2,8 @@ import torch
 
 from torch.optim import Adam, SGD
 from torch.nn import MSELoss, CrossEntropyLoss
-from Constants import *
-from DatasetsManager import ImageTransforms
+from constants import *
+from datasets_manager import ImageTransforms
 
 
 # Training steps definitions

@@ -1,7 +1,7 @@
 import os
 import time
 
-from Models import *
+from network_models import *
 from logging import getLogger
 
 
