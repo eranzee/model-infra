@@ -1,5 +1,5 @@
 import logging
-import training_variables as TrainVars
+import training_variables as train_vars_module
 import datasets_manager
 import os
 
@@ -41,12 +41,12 @@ class TrainingHandler:
         train_vars = DynamicObject()
 
         train_vars[MODEL] = Model(config[MODEL_CLASS], config[MODEL_PATH])
-        train_vars[OPTIMIZER] = TrainVars.custom_optimizers[config[OPTIMIZER]](train_vars[MODEL].net.parameters(), lr=config[LEARNING_RATE])
-        train_vars[CRITERION] = TrainVars.custom_losses[config[CRITERION]]()
+        train_vars[OPTIMIZER] = train_vars_module.custom_optimizers[config[OPTIMIZER]](train_vars[MODEL].net.parameters(), lr=config[LEARNING_RATE])
+        train_vars[CRITERION] = train_vars_module.custom_losses[config[CRITERION]]()
         train_vars[LOADER] = datasets_manager.get_loader(config[DATASET_NAME], config[BATCH_SIZE], config[NUM_LOADER_WORKERS])
-        train_vars[TRAIN_STEP] = TrainVars.custom_training_steps[config[TRAIN_STEP]]
+        train_vars[TRAIN_STEP] = train_vars_module.custom_training_steps[config[TRAIN_STEP]]
 
-        train_vars[MODEL].net.to(TrainVars.device)
+        train_vars[MODEL].net.to(train_vars_module.device)
 
         for epoch in range(config[NUM_EPOCHS]):
             log_values = TrainingHandler.init_log_object()
