@@ -1,0 +1,11 @@
+{
+  "model_class": "TransNetResNetStyle",
+  "ensemble_name": "Transnet",
+  "learning_rate": 0.001,
+  "model_save_dir": "nn_models",
+  "epochs_to_save": [1, 2, 3, 4],
+  "optimizer": "adam",
+  "criterion": "cross_entropy",
+  "should_train": true,
+  "dataset_name": "cifar10"
+}

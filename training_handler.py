@@ -1,5 +1,4 @@
 import logging
-
 import training_variables as TrainVars
 import datasets_manager
 import os

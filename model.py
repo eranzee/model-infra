@@ -3,6 +3,7 @@ import time
 
 from network_models import *
 from logging import getLogger
+from constants import *
 
 
 class Model:
@@ -32,4 +33,13 @@ class Model:
             os.makedirs(model_dir)
         time.sleep(2)
         torch.save(self.net.state_dict(), os.path.join(model_dir, model_name))
+
+    @staticmethod
+    def load_multiple_models(models_dir, test_vars):
+        models = []
+        for filename in os.listdir(models_dir):
+            if filename.endswith(".pth"):
+                model = Model(test_vars[MODEL_CLASS], os.path.join(models_dir, filename))
+                models.append(model)
+        return models
 
