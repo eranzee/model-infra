@@ -1,0 +1,16 @@
+{
+  "num_epochs": 4,
+  "model_class": "TransResNet18",
+  "ensemble_name": "Transnet",
+  "learning_rate": 0.0001,
+  "model_save_dir": "nn_models",
+  "epochs_to_save": [1, 2, 3, 4],
+  "optimizer": "adam",
+  "criterion": "cross_entropy",
+  "should_train": true,
+  "dataset_name": "tiny_imagenet",
+  "batch_size": 64,
+  "train_step": "transnet",
+  "num_loader_workers": 3,
+  "num_classes": 200
+}
